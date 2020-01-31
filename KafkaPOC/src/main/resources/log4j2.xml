@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+	<Properties>
+		<Property name="fileName">logs/xelerate_system.log</Property>
+		<Property name="fileNamePattern">logs/xelerate_system.%d{yyyy-MM-dd}.%i.log</Property>
+		<Property name="logPattern">%d [%thread] %-5level %logger{36} - %msg%n</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="MyRollingFile" fileName="${fileName}" filePattern="${fileNamePattern}">
+			<PatternLayout pattern="${logPattern}"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="20MB"/>
+			</Policies>
+			<DefaultRolloverStrategy max="10"/>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="my.root.package" level="info" additivity="false">
+			<AppenderRef ref="MyRollingFile"/>
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="MyRollingFile"/>
+		</Root>
+	</Loggers>
+</Configuration>
