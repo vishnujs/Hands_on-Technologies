@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $.get("/userdetails", function(data, status){
+              console.log("data", data);
+              document.getElementById("name1").innerHTML = data.userName;
+               document.getElementById("city1").innerHTML = data.city;
+            });
+        });
+</script>
+</head>
+<body>
+<h1>Hello World..</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Citry</th>
+    </tr>
+    <tr>
+        <td id = "name1"></td>
+        <td id="city1"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
